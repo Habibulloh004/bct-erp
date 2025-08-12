@@ -15,7 +15,7 @@ import {
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import { ArrowRight, FileText, Copy, Search } from 'lucide-react';
+import { ArrowRight, FileText, Copy, Search, Trash2 } from 'lucide-react';
 
 const schema = z.object({
   q: z.string().optional(),
@@ -158,30 +158,27 @@ export default function ProductsPage() {
                     <TableCell colSpan={8} className="text-center py-8">Загрузка…</TableCell>
                   </TableRow>
                 )}
-                {!loading && (data?.items?.length ?? 0) === 0 && (
+                {!loading && (data?.data?.length ?? 0) === 0 && (
                   <TableRow>
                     <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">Нет данных</TableCell>
                   </TableRow>
                 )}
-                {!loading && data?.items?.map((p, i) => (
-                  <TableRow key={q?.id}>
+                {!loading && data?.data?.map((p, i) => (
+                  <TableRow key={p?.id}>
                     <TableCell>{(page - 1) * perPage + i + 1}</TableCell>
-                    <TableCell className="font-medium">{q?.name}</TableCell>
-                    <TableCell>{q?.type}</TableCell>
-                    <TableCell>{q?.warehouse}</TableCell>
-                    <TableCell>{q?.qty}</TableCell>
-                    <TableCell>{new Date(q?.createdAt).toLocaleDateString('ru-RU')}</TableCell>
-                    <TableCell>{formatUZS(q?.price)}</TableCell>
+                    <TableCell className="font-medium">{p?.name}</TableCell>
+                    <TableCell>{p?.category_name}</TableCell>
+                    <TableCell>{p?.warehouse}</TableCell>
+                    <TableCell>{p?.qty}</TableCell>
+                    <TableCell>{new Date(p?.created_at).toLocaleDateString('ru-RU')}</TableCell>
+                    <TableCell>{formatUZS(p?.price)}</TableCell>
                     <TableCell className="text-right">
                       <div className="inline-flex gap-2">
                         <Button size="icon" variant="outline" asChild title="Открыть">
-                          <Link to={`/app/products/${q?.id}`}><ArrowRight className="h-4 w-4" /></Link>
+                          <Link to={`/app/products/${p?.id}`}><ArrowRight className="h-4 w-4" /></Link>
                         </Button>
                         <Button size="icon" variant="outline" asChild title="Документ">
-                          <Link to={`/app/products/${q?.id}/doc`}><FileText className="h-4 w-4" /></Link>
-                        </Button>
-                        <Button size="icon" variant="outline" title="Копировать">
-                          <Copy className="h-4 w-4" />
+                          <div><Trash2 className="h-4 w-4" /></div>
                         </Button>
                       </div>
                     </TableCell>
