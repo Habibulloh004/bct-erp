@@ -1,0 +1,44 @@
+{
+  "logo": {
+    "avif": [
+      "/optimized/logo-320.avif 320w",
+      "/optimized/logo-480.avif 480w",
+      "/optimized/logo-768.avif 768w",
+      "/optimized/logo-1024.avif 1024w",
+      "/optimized/logo-1280.avif 1280w",
+      "/optimized/logo-1600.avif 1600w"
+    ],
+    "webp": [
+      "/optimized/logo-320.webp 320w",
+      "/optimized/logo-480.webp 480w",
+      "/optimized/logo-768.webp 768w",
+      "/optimized/logo-1024.webp 1024w",
+      "/optimized/logo-1280.webp 1280w",
+      "/optimized/logo-1600.webp 1600w"
+    ],
+    "fallback": "/optimized/logo-768.jpg",
+    "width": 1600,
+    "height": 790
+  },
+  "logo1": {
+    "avif": [
+      "/optimized/logo1-320.avif 320w",
+      "/optimized/logo1-480.avif 480w",
+      "/optimized/logo1-768.avif 768w",
+      "/optimized/logo1-1024.avif 1024w",
+      "/optimized/logo1-1280.avif 1280w",
+      "/optimized/logo1-1600.avif 1600w"
+    ],
+    "webp": [
+      "/optimized/logo1-320.webp 320w",
+      "/optimized/logo1-480.webp 480w",
+      "/optimized/logo1-768.webp 768w",
+      "/optimized/logo1-1024.webp 1024w",
+      "/optimized/logo1-1280.webp 1280w",
+      "/optimized/logo1-1600.webp 1600w"
+    ],
+    "fallback": "/optimized/logo1-768.jpg",
+    "width": 1600,
+    "height": 776
+  }
+}
