@@ -8,12 +8,15 @@ import Protected from '@/components/shared/Protected';
 import RoleGuard from '@/components/shared/Role';
 
 const Login = lazy(() => import('@/pages/auth/Login'));
-const Dashboard = lazy(() => import('@/pages/dashboard/Dashboard'));
-const Reports = lazy(() => import('@/pages/reports/Reports'));
+const Dashboard = lazy(() => import('@/pages/dashboard'));
+const Reports = lazy(() => import('@/pages/reports'));
 const Users = lazy(() => import('@/pages/settings/users/Users'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
-const Products = lazy(() => import("@/pages/products/Products"))
-
+const Products = lazy(() => import("@/pages/products"))
+const CategoryUpdate = lazy(() => import("@/pages/products/CategoryUpdate"))
+const ProductUpdate = lazy(() => import("@/pages/products/ProductUpdate"))
+const AddProduct = lazy(() => import("@/pages/products/AddProduct"))
+const AddCategory = lazy(() => import("@/pages/products/AddCategory"))
 export const router = createBrowserRouter([
   {
     element: <RootLayout />,
@@ -61,6 +64,38 @@ export const router = createBrowserRouter([
             element: (
               <Suspense fallback={<Loading />}>
                 <Products />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'products/:categoryId',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <CategoryUpdate />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'products/:categoryId/:productId',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <ProductUpdate />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'products/add-product',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <AddProduct />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'products/add-category',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <AddCategory />
               </Suspense>
             ),
           },
